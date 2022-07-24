@@ -47,4 +47,4 @@ Product Management - Suraj and Swagnikk
 Front end development - Gaurav and Swagnikk
 Back end development - Ojha and Shivansh
 UI/UX Design - Gaurav
-DevOps - Shivansh
+DevOps - Shivansh and Suraj
