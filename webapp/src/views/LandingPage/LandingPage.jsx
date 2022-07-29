@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 
 import "./LandingPage.scss";
 
+
 const LandingPage = () => {
 	return (
 		<div className='landing-container'>

@@ -1,0 +1,112 @@
+
+.login-container{
+        background: #e2e2e2;
+        height:100%;
+    .login-box{
+        margin: 0% 50% 3% 40%;
+        background: #FFFFFF;
+        border-radius: 20px;
+        width: 400px;
+        height: 588px;
+        
+        .input-container{
+            margin: 10% 10% 0% 10%;
+            border-radius: 50px;
+            width: 80%;
+            padding: 0px 0px 0px 0px;
+        }
+
+        #textbox{
+            border-radius: 10px;
+            height: 40px;
+            width: 100%;
+            background: #e2e2e2;
+            border-style: hidden;
+            font-size: medium;
+            font-weight: lighter;
+            margin: 0px 0px 0px 0px;
+            padding-left: 20px;
+        }
+        #submit{
+            border-radius: 10px;
+            height: 45px;
+            width: 60%;
+            background: #095FE0;
+            border-style: hidden;
+            color: #FFFFFF;
+            font-size: medium;
+            font-weight: lighter;
+        }
+        .button-container{
+            margin: 10% 0% 10% 35%;
+            width: 50%;
+            border-radius: 20px;
+            border-style: hidden;
+        }
+    }
+    h1{
+        margin: 10% 20% 0% 40%;
+        /* identical to box height */
+        padding: 40px 0px 0px 0px;
+        font-weight: lighter;
+        color: #000000;
+    }
+    h5{
+        margin: 4% 10% 15% 18%;
+        font-weight: bold;
+    }
+    #google{
+        width: 80%;
+        height: 52px;
+        margin: 0% 10% 0% 10%;
+        
+        font-weight: bold;
+        background: #e2e2e2;
+        border-radius: 10px;
+        border-style: hidden;
+    }
+
+    .hr-lines{
+        position: relative;
+        max-width: 500px;
+        margin: 50px auto;
+        text-align: center;
+        font-weight: lighter;
+      }
+      
+      .hr-lines:before{
+        content:" ";
+        height: 2px;
+        width: 170px;
+        background: linear-gradient(to left, black, grey, white);
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+      }
+      
+      .hr-lines:after{
+        content:" ";
+        height: 2px;
+        width: 170px;
+        background: linear-gradient(to right, black, grey, white);
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+      }
+      
+      
+      .line{
+        width: 500px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.4;
+      }
+      
+    
+}
