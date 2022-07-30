@@ -3,8 +3,8 @@
     // .heading {
     //     position: sticky;
     // }
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-    
+    background-color: #f1f5f8;
+
     .hero {
         height: 100vh;
         background-color: blue;
@@ -15,26 +15,39 @@
         font-size: 32px;
         margin-bottom: 15px;
         display: block;
+        margin-left: 256px;
     }
 
     section {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        // grid-auto-rows: minmax(100px, auto);
-        margin-left: 256px;
-        margin-right: 256px;
+        gap: 50px;
+        margin: 25px 256px 150px 256px;
 
-        .row-content {
+        .about-content {
             grid-column: 1 / 2;
             grid-row: 1;
+            margin-top: 75px;
         }
 
-        .image {
+        .about-image {
             grid-column: 2;
             grid-row: 1;
-            height: 100px;
+            height: 250px;
             background-color: greenyellow;
+        }
+
+        .mission-image {
+            grid-column: 1 / 2;
+            grid-row: 1;
+            height: 250px;
+            background-color: greenyellow;
+        }
+
+        .mission-content {
+            grid-column: 2;
+            grid-row: 1;
+            margin-top: 75px;
         }
     }
 }

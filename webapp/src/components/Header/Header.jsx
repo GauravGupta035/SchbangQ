@@ -7,14 +7,14 @@ const Header = () => {
 		<div>
 			<header>
 				<div className='header-content'>
-					<a href='#default' class='logo'>
+					<a href='#default' className='logo'>
 						SchbangQ
 					</a>
-					<div class='header-right'>
-						<a class='nav-link' href='/employeelogin'>
+					<div className='header-right'>
+						<a className='nav-link' href='/employeelogin'>
 							Employee Login
 						</a>
-						<a class='nav-link' href='/customerlogin'>
+						<a className='nav-link' href='/customerlogin'>
 							Customer Login
 						</a>
 					</div>
