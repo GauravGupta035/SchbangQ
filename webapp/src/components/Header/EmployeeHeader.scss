@@ -1,0 +1,47 @@
+header {
+    background-color: white;
+    height: 60px;
+    padding: 16px 32px;
+    margin: 0px;
+    // position: sticky;
+
+    .header-content {
+        margin-top: 10px;
+    }
+
+    a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 25px;
+        border-radius: 4px;
+        font-weight: 500;
+        background-color: white;
+      
+        &.logo{
+            font-size: 24px;
+            font-weight: bold;
+            color: #0F63AC;
+        }
+    }
+
+    .nav-link:hover {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-thickness: 2px;
+    }
+
+    .active {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-thickness: 2px;
+    }
+
+    div.header-right{
+        float: right;
+    }
+
+}

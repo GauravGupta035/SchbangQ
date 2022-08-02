@@ -1,12 +1,13 @@
-.signup-container {
+
+.staff-login-container{
     background: #f1f5f8;
     height: 100vh;
 
-    .signup-box {
+    .staff-login-box {
         background-color: white;
         width: 350px;
-        height: 400px;
-        margin: 70px auto;
+        height: 300px;
+        margin: 100px auto;
         padding: 50px;
         border-radius: 20px;
 
@@ -26,8 +27,8 @@
         }
 
         .btn {
-            display: flex;
-            justify-content: center;
+           display: flex;
+           justify-content: center;
 
             .submit-btn {
                 padding: 10px;
@@ -40,9 +41,5 @@
 
             }
         }
-
-        p {
-            text-align: center;
-        }
-    }
+    }   
 }

@@ -1,7 +1,20 @@
 import React from "react";
 
+import EmployeeHeader from "../../components/Header/EmployeeHeader";
+import SearchBox from "../../components/SearchBox/SearchBox";
+
+import "./Community.scss";
+
 const Community = () => {
-	return <div>Community</div>;
+	return (
+		<div className='community-container'>
+			<EmployeeHeader />
+			<hr />
+			<section className='utility-bar'>
+				<SearchBox />
+			</section>
+		</div>
+	);
 };
 
 export default Community;

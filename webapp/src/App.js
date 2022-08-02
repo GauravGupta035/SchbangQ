@@ -4,8 +4,9 @@ import "./App.scss";
 import Community from "./views/Community/Community";
 import LandingPage from "./views/LandingPage/LandingPage";
 import CustomerLogin from "./views/CustomerLogin/CustomerLogin";
-import CustomerSignup from "./views/CustomerSignup/CustomerSignup"
+import CustomerSignup from "./views/CustomerSignup/CustomerSignup";
 import PageDoesNotExist from "./views/PageDoesNotExist/PageDoesNotExist";
+import StaffLogin from "./views/StaffLogin/StaffLogin";
 
 const App = () => {
 	return (
@@ -13,8 +14,11 @@ const App = () => {
 			<Routes>
 				<Route path='/' element={<LandingPage />} />
 				<Route path='/community' element={<Community />} />
-				<Route path='/customerlogin' element={<CustomerLogin/>} />
-				<Route path='/customersignup' element={<CustomerSignup/>} />
+
+				<Route path='/customerlogin' element={<CustomerLogin />} />
+				<Route path='/customersignup' element={<CustomerSignup />} />
+
+				<Route path='/stafflogin' element={<StaffLogin />} />
 
 				<Route path='*' element={<PageDoesNotExist />} />
 			</Routes>

@@ -11,8 +11,8 @@ const Header = () => {
 						SchbangQ
 					</a>
 					<div className='header-right'>
-						<a className='nav-link' href='/employeelogin'>
-							Employee Login
+						<a className='nav-link' href='/stafflogin'>
+							Staff Login
 						</a>
 						<a className='nav-link' href='/customerlogin'>
 							Customer Login

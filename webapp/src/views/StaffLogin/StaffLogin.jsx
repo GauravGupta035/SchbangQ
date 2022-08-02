@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 
 import Header from "../../components/Header/Header";
-import "./CustomerLogin.scss";
+import "./StaffLogin.scss";
 
-const CustomerLogin = (props) => {
-	const [loginCredentials, setLoginCredentials] = useState({
+const StaffLogin = (props) => {
+	const [staffLoginCredentials, setStaffLoginCredentials] = useState({
 		email: "",
 		password: "",
 	});
 
 	const handleChange = (event) => {
-		setLoginCredentials((prevValue) => {
+		setStaffLoginCredentials((prevValue) => {
 			return {
 				...prevValue,
 				[event.target.name]: event.target.value,
@@ -20,17 +20,17 @@ const CustomerLogin = (props) => {
 	};
 
 	const submitCred = (event) => {
-		console.log(loginCredentials.email);
-		console.log(loginCredentials.password);
+		console.log(staffLoginCredentials.email);
+		console.log(staffLoginCredentials.password);
 	};
 
 	return (
-		<div className='login-container'>
+		<div className='staff-login-container'>
 			<Header />
-			<div className='login-box'>
+			<div className='staff-login-box'>
 				<Form>
 					<Form.Group>
-						<h2>Log In</h2>
+						<h2>Staff Log In</h2>
 					</Form.Group>
 					<Form.Group className='mb-3' controlId='formBasicEmail'>
 						<Form.Label>Email address</Form.Label>
@@ -40,7 +40,7 @@ const CustomerLogin = (props) => {
 							placeholder='Enter email'
 							name='email'
 							onChange={handleChange}
-							value={loginCredentials.email}
+							value={staffLoginCredentials.email}
 						/>
 					</Form.Group>
 
@@ -52,7 +52,7 @@ const CustomerLogin = (props) => {
 							placeholder='Enter password'
 							name='password'
 							onChange={handleChange}
-							value={loginCredentials.password}
+							value={staffLoginCredentials.password}
 						/>
 					</Form.Group>
 					<div className='btn'>
@@ -60,18 +60,10 @@ const CustomerLogin = (props) => {
 							Log In
 						</button>
 					</div>
-
-					<p className='hr-lines'> OR </p>
-					<div className='btn'>
-						<button className='google'>Continue with Google</button>
-					</div>
 				</Form>
-				<p>
-					Don't have an account? <a href='/customersignup'>Create an account</a>
-				</p>
 			</div>
 		</div>
 	);
 };
 
-export default CustomerLogin;
+export default StaffLogin;
