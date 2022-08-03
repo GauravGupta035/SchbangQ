@@ -3,7 +3,7 @@ const router = require('express').Router()
 const jwt = require('jsonwebtoken')
 
 const Employee = require('../models/employee.model.js')
-const EmployeeAuth = require('./EmployeeAuth.js')
+const EmployeeAuth = require('./employeeAuth.js')
 
 router.post('/register', async (req, res) => {
   try {

@@ -3,7 +3,7 @@ const router = require('express').Router()
 const jwt = require('jsonwebtoken')
 
 const SuperAdmin = require('../models/superadmin.model.js')
-const SuperAuth = require('./SuperAuth.js')
+const SuperAuth = require('./superAuth.js')
 
 router.post('/register', async (req, res) => {
   try {

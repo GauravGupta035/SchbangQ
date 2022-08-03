@@ -36,7 +36,7 @@ app.use('/api/v1/get', require('./GetService/get.router.js'))
 app.use('/api/v1/super', require('./SuperAdminService/superadmin.router.js'))
 app.use('/api/v1/admin', require('./AdminService/admin.router.js'))
 app.use('/api/v1/employee', require('./EmployeeService/employee.router.js'))
-app.use('/api/v1/client', require('./ClientService/client.router.js'))
+app.use('/api/v1/customer', require('./CustomerService/customer.router.js'))
 
 app.use('*', (req, res) => res.status(404).json({ message: 'link not found' }))
 

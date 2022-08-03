@@ -3,7 +3,7 @@ const router = require('express').Router()
 const jwt = require('jsonwebtoken')
 
 const Admin = require('../models/admin.model.js')
-const AdminAuth = require('./AdminAuth.js')
+const AdminAuth = require('./adminAuth.js')
 
 router.post('/register', async (req, res) => {
   try {

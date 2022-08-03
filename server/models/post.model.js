@@ -3,23 +3,31 @@ const mongoose = require('mongoose')
 const Account = require('./account.model.js')
 
 const PostSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true
   },
-  byUser: {
+  editor: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Profile',
+    ref: Account,
     required: true
   },
   body: {
     type: String,
     required: true
   },
+  tags: {
+    type: [String],
+    default: []
+  },
   likes: {
     type: [mongoose.Schema.Types.ObjectId],
     ref: Account
-  }
+  },
+  uploaddate: {
+    type: Number,
+    default: Date.now()
+  },
 })
 
 const Post = mongoose.model('Post', PostSchema, 'Post')

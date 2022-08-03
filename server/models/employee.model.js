@@ -4,9 +4,9 @@ const Account = require('./account.model.js')
 const options = { discriminatorKey: 'type' };
 
 const EmployeeSchema = new mongoose.Schema({
-  e: {
-    type: String,
-    default: ""
+  accountCreatedBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: Account
   },
   f: {
     type: String,
