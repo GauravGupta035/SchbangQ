@@ -1,6 +1,6 @@
 import React from "react";
 
-import EmployeeHeader from "../../components/Header/EmployeeHeader";
+import EmployeeHeader from "../../components/EmployeeComponents/EmployeeHeader/EmployeeHeader";
 import SearchBox from "../../components/SearchBox/SearchBox";
 
 import "./Community.scss";

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 import Header from "../../components/Header/Header";
 import "./StaffLogin.scss";
 
 const StaffLogin = (props) => {
+	const navigate = useNavigate();
+
 	const [staffLoginCredentials, setStaffLoginCredentials] = useState({
 		email: "",
 		password: "",
@@ -22,6 +25,8 @@ const StaffLogin = (props) => {
 	const submitCred = (event) => {
 		console.log(staffLoginCredentials.email);
 		console.log(staffLoginCredentials.password);
+
+		navigate("/superadmindashboard");
 	};
 
 	return (

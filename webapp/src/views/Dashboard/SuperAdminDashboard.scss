@@ -1,0 +1,12 @@
+.sa-dashboard-container {
+    background-color: #f1f5f8;
+
+    section {
+        margin: 25px 256px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
