@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
     const existingProfile = await Customer.findOne({ email: email })
 
     if (existingProfile) {
-      return res.status(400).json({ message: 'Profile already exists' })
+      return res.status(400).json({ message: 'Email taken' })
     }
 
     const salt = await bcrypt.genSalt()
@@ -25,7 +25,6 @@ router.post('/register', async (req, res) => {
     const newProfile = new Customer({
       name: name,
       email: email,
-      password: password,
       hashedpassword: hashedpassword
     })
 
@@ -38,7 +37,7 @@ router.post('/register', async (req, res) => {
   }
 })
 
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body
 
@@ -46,7 +45,7 @@ router.get('/login', async (req, res) => {
       return res.status(401).json({ message: 'fill all the fields' })
     }
 
-    const existingProfile = await Customer.findOne({ email: email }).select('+password +hashedpassword')
+    const existingProfile = await Customer.findOne({ email: email }).select('+hashedpassword')
 
     if (!existingProfile) {
       return res.status(401).json({ message: 'Invalid Email or Password' })
@@ -82,7 +81,7 @@ router.post('/updatepassword', CustomerAuth, async (req, res) => {
       return res.status(401).json({ message: 'fill all the fields' })
     }
 
-    const existingProfile = await Customer.findById(_id).select('+password +hashedpassword')
+    const existingProfile = await Customer.findById(_id).select('+hashedpassword')
 
     const isPasswordValid = await bcrypt.compare(currentPassword, existingProfile.hashedpassword)
 
@@ -93,7 +92,7 @@ router.post('/updatepassword', CustomerAuth, async (req, res) => {
     const salt = await bcrypt.genSalt()
     const newhashedpassword = await bcrypt.hash(newPassword, salt)
 
-    await Customer.findByIdAndUpdate(id, { password: newPassword, hashedpassword: newhashedpassword })
+    await Customer.findByIdAndUpdate(_id, { hashedpassword: newhashedpassword })
 
     return res.status(200).json({ message: 'Password Changed' })
   } catch (e) {

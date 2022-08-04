@@ -3,11 +3,7 @@ const mongoose = require('mongoose')
 const Account = require('./account.model.js')
 
 const PostSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  editor: {
+  author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: Account,
     required: true
@@ -15,6 +11,10 @@ const PostSchema = new mongoose.Schema({
   body: {
     type: String,
     required: true
+  },
+  isPinned: {
+    type: Boolean,
+    default: false
   },
   tags: {
     type: [String],

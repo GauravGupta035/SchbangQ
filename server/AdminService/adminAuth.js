@@ -9,9 +9,9 @@ async function adminAuth (req, res, next) {
       return res.json({ authorized: false, message: 'Unauthorized' })
     }
 
-    const { id } = jwt.verify(adminToken, process.env.JWT_SECRET)
+    const { _id } = jwt.verify(adminToken, process.env.JWT_SECRET)
 
-    if ((await Admin.findById(id)) === null) {
+    if ((await Admin.findById(_id)) === null) {
       return res.cookie('adminToken', '', {
         httpOnly: true,
         expires: new Date(0)

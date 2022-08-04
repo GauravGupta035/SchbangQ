@@ -6,7 +6,8 @@ const options = { discriminatorKey: 'type' };
 const EmployeeSchema = new mongoose.Schema({
   accountCreatedBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: Account
+    ref: Account,
+    required: true
   },
   f: {
     type: String,
@@ -18,7 +19,6 @@ const EmployeeSchema = new mongoose.Schema({
   }
 }, options)
 
-// const Employee = mongoose.model('Employee', EmployeeSchema, 'Employee')
 const Employee = Account.discriminator('Employee', EmployeeSchema, 'Employee')
 
 module.exports = Employee

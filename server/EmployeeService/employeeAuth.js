@@ -9,9 +9,9 @@ async function EmployeeAuth (req, res, next) {
       return res.json({ authorized: false, message: 'Unauthorized' })
     }
 
-    const { id } = jwt.verify(EmployeeToken, process.env.JWT_SECRET)
+    const { _id } = jwt.verify(EmployeeToken, process.env.JWT_SECRET)
 
-    if ((await Employee.findById(id)) === null) {
+    if ((await Employee.findById(_id)) === null) {
       return res.cookie('EmployeeToken', '', {
         httpOnly: true,
         expires: new Date(0)

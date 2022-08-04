@@ -2,30 +2,42 @@ const bcrypt = require('bcryptjs')
 const router = require('express').Router()
 const jwt = require('jsonwebtoken')
 
+const Account = require('../models/account.model.js')
+const Admin = require('../models/admin.model.js')
 const SuperAdmin = require('../models/superadmin.model.js')
 const SuperAuth = require('./superAuth.js')
 
+String.prototype.toProperCase = function () {
+  return this.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+};
+
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password } = req.body
+    const { firstname, lastname, email, password } = req.body
+    let { middlename } = req.body
 
-    if (!name || !email || !password) {
+    if (!firstname || !lastname || !email || !password) {
       return res.status(400).json({ message: 'fill all the fields' })
     }
 
-    const existingProfile = await SuperAdmin.findOne({ email: email })
+    const existingProfile = await Account.findOne({ email: email })
 
     if (existingProfile) {
-      return res.status(400).json({ message: 'Profile already exists' })
+      return res.status(400).json({ message: 'Email is already taken' })
     }
 
     const salt = await bcrypt.genSalt()
     const hashedpassword = await bcrypt.hash(password, salt)
 
+    if (middlename) {
+      middlename = middlename.toProperCase()
+    }
+
     const newProfile = new SuperAdmin({
-      name: name,
+      firstname: firstname.toProperCase(),
+      middlename: middlename,
+      lastname: lastname.toProperCase(),
       email: email,
-      password: password,
       hashedpassword: hashedpassword
     })
 
@@ -38,7 +50,7 @@ router.post('/register', async (req, res) => {
   }
 })
 
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body
 
@@ -46,7 +58,7 @@ router.get('/login', async (req, res) => {
       return res.status(401).json({ message: 'fill all the fields' })
     }
 
-    const existingProfile = await SuperAdmin.findOne({ email: email }).select('+password +hashedpassword')
+    const existingProfile = await SuperAdmin.findOne({ email: email }).select('+hashedpassword')
 
     if (!existingProfile) {
       return res.status(401).json({ message: 'Invalid Email or Password' })
@@ -82,7 +94,7 @@ router.post('/updatepassword', SuperAuth, async (req, res) => {
       return res.status(401).json({ message: 'fill all the fields' })
     }
 
-    const existingProfile = await SuperAdmin.findById(_id).select('+password +hashedpassword')
+    const existingProfile = await SuperAdmin.findById(_id).select('+hashedpassword')
 
     const isPasswordValid = await bcrypt.compare(currentPassword, existingProfile.hashedpassword)
 
@@ -93,7 +105,7 @@ router.post('/updatepassword', SuperAuth, async (req, res) => {
     const salt = await bcrypt.genSalt()
     const newhashedpassword = await bcrypt.hash(newPassword, salt)
 
-    await SuperAdmin.findByIdAndUpdate(id, { password: newPassword, hashedpassword: newhashedpassword })
+    await SuperAdmin.findByIdAndUpdate(_id, { hashedpassword: newhashedpassword })
 
     return res.status(200).json({ message: 'Password Changed' })
   } catch (e) {
@@ -121,8 +133,57 @@ router.get('/verify', SuperAuth, (req, res) => {
   }).status(200)
 })
 
-router.post('/new/manager', (req, res) => {
-    
+router.post('/new/manager', SuperAuth, async (req, res) => {
+  try {
+    let { firstname, middlename, lastname } = req.body
+    const { dateofbirth, gender } = req.body
+    const { _id } = req.superInfo
+
+    if (!firstname || !lastname || !dateofbirth || !gender) {
+      return res.status(400).json({ message: 'fill all the fields' })
+    }
+
+    const existingProfiles = await Account.find({
+      firstname: {
+        $regex: firstname,
+        $options: 'i'
+      }, lastname: {
+        $regex: lastname,
+        $options: 'i'
+      }
+    })
+
+    let email = firstname.toLowerCase() + '.' + lastname.toLowerCase() + '@schbangq.inf'
+    if (existingProfiles.length) {
+      email = firstname.toLowerCase() + '.' + lastname.toLowerCase() + '.' + (existingProfiles.length) + '@schbangq.inf'
+    }
+
+    const salt = await bcrypt.genSalt()
+    const hashedpassword = await bcrypt.hash('login1234', salt)
+
+
+    if (middlename) {
+      middlename = middlename.toProperCase()
+    }
+
+    const newProfile = new Admin({
+      firstname: firstname.toProperCase(),
+      middlename: middlename,
+      lastname: lastname.toProperCase(),
+      dateofbirth: dateofbirth,
+      gender: gender,
+      email: email,
+      hashedpassword: hashedpassword,
+      accountCreatedBy: _id
+    })
+
+    await newProfile.save()
+
+    res.status(200).json({ message: 'Admin Creation Success' })
+  } catch (e) {
+    console.error(e)
+    res.status(500).json({ message: 'Internal Server Error' })
+  }
 })
 
 module.exports = router

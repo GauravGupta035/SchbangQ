@@ -18,7 +18,6 @@ const SuperAdminSchema = new mongoose.Schema({
   }
 }, options);
 
-// const SuperAdmin = mongoose.model('SuperAdmin', SuperAdminSchema, 'SuperAdmin')
 const SuperAdmin = Account.discriminator('SuperAdmin', SuperAdminSchema, 'SuperAdmin')
 
 module.exports = SuperAdmin

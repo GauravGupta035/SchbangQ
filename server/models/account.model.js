@@ -3,7 +3,15 @@ const mongoose = require('mongoose')
 const options = { discriminatorKey: 'type' };
 
 const accountSchema = new mongoose.Schema({
-  name: {
+  firstname: {
+    type: String,
+    required: true
+  },
+  middlename: {
+    type: String,
+    default: ""
+  },
+  lastname: {
     type: String,
     required: true
   },
@@ -11,10 +19,13 @@ const accountSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  password: {
+  dateofbirth: {
     type: String,
-    required: true,
-    select: false
+    default: null
+  },
+  gender: {
+    type: String,
+    default: null
   },
   hashedpassword: {
     type: String,

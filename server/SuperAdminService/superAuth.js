@@ -9,9 +9,9 @@ async function superAuth (req, res, next) {
       return res.json({ authorized: false, message: 'Unauthorized' })
     }
 
-    const { id } = jwt.verify(superToken, process.env.JWT_SECRET)
+    const { _id } = jwt.verify(superToken, process.env.JWT_SECRET)
 
-    if ((await SuperAdmin.findById(id)) === null) {
+    if ((await SuperAdmin.findById(_id)) === null) {
       return res.cookie('superToken', '', {
         httpOnly: true,
         expires: new Date(0)
