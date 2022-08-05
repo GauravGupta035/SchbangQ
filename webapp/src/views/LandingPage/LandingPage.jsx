@@ -37,14 +37,8 @@ const LandingPage = () => {
 				<ServiceCard title='Cyber Security' />
 				<ServiceCard title='Hardware Innovation' />
 				<ServiceCard title='Marketing Innovation' />
-				<ServiceCard
-					title='Customer Relationship
-Management'
-				/>
-				<ServiceCard
-					title='Credit Risk 
-Management'
-				/>
+				<ServiceCard title='Customer Relationship Management' />
+				<ServiceCard title='Credit Risk Management' />
 			</section>
 			<Footer />
 		</div>

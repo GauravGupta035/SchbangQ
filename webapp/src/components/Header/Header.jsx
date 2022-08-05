@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 import "./Header.scss";
 
@@ -7,16 +8,16 @@ const Header = () => {
 		<div>
 			<header>
 				<div className='header-content'>
-					<a href='#default' className='logo'>
+					<Link to='/' className='logo'>
 						SchbangQ
-					</a>
+					</Link>
 					<div className='header-right'>
-						<a className='nav-link' href='/stafflogin'>
+						<Link className='nav-link' to='/stafflogin'>
 							Staff Login
-						</a>
-						<a className='nav-link' href='/customerlogin'>
+						</Link>
+						<Link className='nav-link' to='/customerlogin'>
 							Customer Login
-						</a>
+						</Link>
 					</div>
 				</div>
 			</header>
