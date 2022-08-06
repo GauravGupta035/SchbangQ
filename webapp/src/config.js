@@ -1,8 +1,6 @@
-const ipaddr = '192.168.1.11'
+const ipaddr = '192.168.1.6'
 
-export const LocalServerUrl = 'http://localhost:5000/api'
-export const LanServerUrl = `http://${ipaddr}:5000/api`
-export const TetheredServerUrl = 'http://192.168.43.250:5000/api'
-export const GlobalServerUrl = 'http://_._._._:5000/api'
+export const LocalServerUrl = 'http://localhost:5000/api/v1'
+export const LanServerUrl = `http://${ipaddr}:5000/api/v1`
 
-export const ApiBaseUrl = process.env.NODE_ENV === 'development' ? LanServerUrl : '/api'
+export const ApiBaseUrl = process.env.NODE_ENV === 'development' ? LanServerUrl : '/api/v1'

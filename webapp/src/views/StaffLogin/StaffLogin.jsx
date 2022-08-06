@@ -13,19 +13,18 @@ const StaffLogin = () => {
 	const [password, setPassword] = useState("");
 
 	const submitCred = async (event) => {
-		event.preventDefault()
 		const payload = {
 			email,
 			password
 		}
-		await axios.post(`${ApiBaseUrl}/`, payload).then((response) => {
-			alert("Success" + response.status)
+		axios.post(`${ApiBaseUrl}/super/login`, payload).then((response) => {
+			navigate("/superadmindashboard");
 		}).catch((err) => {
 			if (err.response) {
-				console.log(err.response.data)
+				alert(err.response.data.message)
 			}
 		})
-		// navigate("/superadmindashboard");
+		event.preventDefault()
 	};
 
 	return (

@@ -12,7 +12,7 @@ const Header = () => {
 						SchbangQ
 					</Link>
 					<div className='header-right'>
-						<Link className='nav-link' to='/stafflogin'>
+						<Link className='nav-link' to='/admin/dashboard'>
 							Staff Login
 						</Link>
 						<Link className='nav-link' to='/customerlogin'>
