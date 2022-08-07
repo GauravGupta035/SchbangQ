@@ -1,0 +1,37 @@
+.card-container {
+    background-color: white;
+    height: 250px;
+    width: 400px;
+    border-radius: 20px;
+    padding: 20px;
+
+    .card-content {
+
+        h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            display: block;
+            text-align: center;
+            justify-content: center;
+        }
+
+        ul {
+            margin-bottom: 25px;
+            margin-left: 15px;
+
+            li {
+                line-height: 2;
+            }
+        }
+
+        button {
+            color: white;
+            background-color: blue;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    }
+}

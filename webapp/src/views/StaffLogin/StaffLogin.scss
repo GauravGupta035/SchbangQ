@@ -1,0 +1,45 @@
+
+.staff-login-container{
+    background: #f1f5f8;
+    height: 100vh;
+
+    .staff-login-box {
+        background-color: white;
+        width: 350px;
+        height: 300px;
+        margin: 100px auto;
+        padding: 50px;
+        border-radius: 20px;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .input-container {
+            margin-bottom: 15px;
+            width: 350px;
+            margin-top: 5px;
+            display: block;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+
+        .btn {
+           display: flex;
+           justify-content: center;
+
+            .submit-btn {
+                padding: 10px;
+                width: 100px;
+                background-color: rgb(63, 63, 202);
+                border: none;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                cursor: pointer;
+
+            }
+        }
+    }   
+}

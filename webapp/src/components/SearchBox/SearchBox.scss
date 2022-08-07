@@ -1,0 +1,30 @@
+.searchbox {
+    // border-radius: 15px;
+    width: 250px;
+    // padding: 10px;
+    margin-left: 256px;
+    margin-top: 50px;
+
+    form {
+        
+        input {
+            padding: 10px;
+            background-color: white;
+            border-radius: 15px;
+            display: inline-block;
+            border: none;
+            outline: none;
+        }
+    }
+
+    .interaction-panel {
+
+        .notifications {
+            background-color: white;
+        }
+
+        .community-profile {
+            background-color: white;
+        }
+    }
+}
