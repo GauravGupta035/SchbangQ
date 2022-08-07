@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Header.scss";
 
@@ -12,7 +12,7 @@ const Header = () => {
 						SchbangQ
 					</Link>
 					<div className='header-right'>
-						<Link className='nav-link' to='/admin/dashboard'>
+						<Link className='nav-link' to='/employee/login'>
 							Staff Login
 						</Link>
 						<Link className='nav-link' to='/customerlogin'>

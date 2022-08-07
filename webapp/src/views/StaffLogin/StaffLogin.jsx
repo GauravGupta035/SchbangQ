@@ -15,16 +15,19 @@ const StaffLogin = () => {
 	const submitCred = async (event) => {
 		const payload = {
 			email,
-			password
-		}
-		axios.post(`${ApiBaseUrl}/super/login`, payload).then((response) => {
-			navigate("/superadmindashboard");
-		}).catch((err) => {
-			if (err.response) {
-				alert(err.response.data.message)
-			}
-		})
-		event.preventDefault()
+			password,
+		};
+		axios
+			.post(`${ApiBaseUrl}/super/login`, payload)
+			.then((response) => {
+				navigate("/superadmindashboard");
+			})
+			.catch((err) => {
+				if (err.response) {
+					alert(err.response.data.message);
+				}
+			});
+		event.preventDefault();
 	};
 
 	return (
